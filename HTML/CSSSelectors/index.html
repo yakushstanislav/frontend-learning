@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HTML selectors example</title>
+        <style>
+            div {background-color: rgba(1,1,1, 30%);}
+            #main p {color: red;}
+            #main_2>p {color: yellow;}
+            div.green {color: green;}
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <p>Simple text 1</p>
+            <p>Simple text 2</p>
+            <p>Simple text 3</p>
+            <div>
+                <p>Simple text 4</p>
+            </div>
+        </div>
+
+        <div id="main_2">
+            <p>Simple text 1</p>
+            <p>Simple text 2</p>
+            <p>Simple text 3</p>
+            <div>
+                <p>Simple text 4</p>
+            </div>
+        </div>
+
+        <div class="green">
+            <p>Simple text 1</p>
+            <p>Simple text 2</p>
+            <p>Simple text 3</p>
+            <div>
+                <p>Simple text 4</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CSS form example</title>
+    <style>
+        .page {
+            max-width: 800px;
+            margin: 0px auto 0px auto;
+            padding: 10px;
+        }
+
+        .page h2 {
+            text-align: center;
+            border-bottom: 1px black solid;
+            text-transform: uppercase;
+        }
+
+        .page fieldset {
+            border: 1px black solid;
+            border-radius: 10px;
+        }
+
+        .page fieldset legend {
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 10px 30px 10px 30px;
+            border: 1px black solid;
+            border-radius: 10px;
+            border-bottom: 0px black solid;
+        }
+
+        .page form label {
+            font-size: 14px;;
+        }
+
+        .page form input[type="email"], input[type="password"] {
+            padding: 5px;
+            border: 1px black solid;
+            border-radius: 5px;
+        }
+
+        .page form input[type="email"]:focus, input[type="password"]:focus {
+            border-style: dashed;
+        }
+
+        .page form input[type="submit"] {
+            font-size: 14px;
+            padding: 5px;
+            border: 1px black solid;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h2>CSS form example</h2>
+        <form action="www.google.com?login" method="POST">
+            <fieldset>
+                <legend>Login</legend>
+                <p>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="email" required maxlength="64">
+                </p>
+
+                <p>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" required maxlength="15">
+                </p>
+
+                <input type="submit" value="Login">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

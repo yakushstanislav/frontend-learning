@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS Layout</title>
+        <style>
+            * {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            body {
+                background-image: url("louis-vuitton.png");
+            }
+
+            #main {
+                width: 1000px;
+                margin: 0px auto 0px auto;
+                background-color: white;
+            }
+
+            #main #menu {
+                position: fixed;
+                top: 0px;
+                width: 1000px;
+                background-color: blanchedalmond;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            #main #menu h2 {
+                float: left;
+                font-size: 20px;
+                border-bottom: 1px black dashed;
+                margin-left: 10px;
+            }
+
+            #main #menu ul {
+                float: right;
+                padding-left: 0px;
+                margin-right: 10px;
+            }
+
+            #main #menu li {
+                display: inline;
+                padding: 10px;
+                border: 1px orange solid;
+                border-radius: 10px;
+            }
+
+            #main #menu li a {
+                color: orangered;
+                font-size: 20px;
+                text-decoration: none;
+            }
+
+            #main #menu li a:hover {
+                border-bottom: 1px orange solid;
+            }
+
+            #main #widgets {
+                margin-top: 70px;
+            }
+
+            #main #widgets #weather {
+                float: left;
+                width: 35%;
+                height: 30%;
+                padding: 1%;
+            }
+
+            #main #widgets #joke {
+                float: right;
+                width: 35%;
+                height: 30%;
+                padding: 1%;
+            }
+
+            #main #news-list {
+                clear: both;
+                padding: 10px;
+            }
+
+            #main #news-list .news h3 {
+                text-transform: uppercase;
+            }
+
+            #main #footer {
+                width: 1000px;
+                height: 50px;
+                text-align: center;
+                background-color: blanchedalmond;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="menu">
+                <h2>CSS Layout example</h2>
+
+                <ul>
+                    <li><a href="#main">Main</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#footer">About</a></li>
+                </ul>
+            </div>
+
+            <div id="widgets">
+                <div id="weather">
+                    <h3>Weather</h3>
+                    <p>In the Minsk city 18C temperature.</p>
+                </div>
+
+                <div id="joke">
+                    <h3>Joke</h3>
+                    <p>Why do we tell actors to “break a leg?”</p>
+                    <p><b>Because every play has a cast.</b></p>
+                </div>
+            </div>
+
+            <div id="news-list">
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                    had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                    in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                    had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                    in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+                <div class="news">
+                    <h3>Babri mosque: India court acquits BJP leaders in demolition case</h3>
+
+                    <p>Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.Former Deputy Prime Minister LK Advani, and BJP leaders MM Joshi and Uma Bharti,
+                        had denied charges of inciting Hindu mobs to demolish the 16th Century Babri mosque
+                        in the town of Ayodhya.</p>
+
+                    <p>The demolition sparked violence that killed some 2,000 people.
+                    It was also a pivotal moment in the political rise of the Hindu right-wing.</p>
+
+                    <p>Wednesday's verdict acquitted 32 of the 49 people charged - 17 had died while
+                    the case was under way. The court said there was insufficient evidence to prove the demolition had been planned.</p>
+                </div>
+            </div>
+
+            <div id="footer">
+                <address>
+                    New copied from BBC site by <a href="mailto:st.yakush@yandex.ru">st.yakush@yandex.ru</a> &copy; 2020
+                </address>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Form without CSS style</title>
+
+    <style>
+        #buttons {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form" action="/newuser.php" method="POST">
+        <fieldset>
+            <legend>Анкета нового пользователя</legend>
+
+            <p>
+                <label for="form__firstname">Имя:</label>
+                <input id="form__firstname" type="text" name="firstname" maxlength="32" required>
+            </p>
+
+            <p>
+                <label for="form__firstname">Фамилия:</label>
+                <input id="form__lastname" type="text" name="lastname" maxlength="32" required>
+            </p>
+
+            <p>
+                Укажите пол:
+                <label for="form__sex_male">мужской</label>
+                <input id="form__sex_male" type="radio" name="sex" value="male">
+
+                <label for="form__sex_female">женский</label>
+                <input id="form__sex_female" type="radio" name="sex" value="female">
+            </p>
+
+            <p>
+                Страна проживания:
+                <select name="country">
+                    <option value="BY">Беларусь</option>
+                    <option value="RU">Россия</option>
+                    <option value="UK">Украина</option>
+                </select>
+            </p>
+
+            <p>
+                Владение языками:
+                <input id="form__lang_ru" type="checkbox" name="lang" value="RU">
+                <label for="form__lang_ru">русский</label>
+
+                <input id="form__lang_by" type="checkbox" name="lang" value="BY">
+                <label for="form__lang_by">белорусский</label>
+
+                <input id="form__lang_en" type="checkbox" name="lang" value="EN">
+                <label for="form__lang_en">английский</label>
+            </p>
+
+            <p>
+                Фото пофиля:
+                <input type="file" name="photo">
+            </p>
+
+            <p>
+                <label for="form__login">Введите логин:</label>
+                <input id="form__login" type="text" name="login" maxlength="32" required>
+            </p>
+
+            <p>
+                <label for="form__email">Введите email:</label>
+                <input id="form__email" type="email" name="email" maxlength="32" required>
+            </p>
+
+            <p>
+                <label for="form__password">Введите пароль:</label>
+                <input id="form__password" type="password" name="password" maxlength="32" required>
+            </p>
+
+            <p>
+                <label for="form__password_repeat">Повторите пароль:</label>
+                <input id="form__password_repeat" type="password" name="password_repeat" maxlength="32" required>
+            </p>
+
+            <hr>
+
+            <div id="buttons">
+                <input type="submit" value="Отправить" disabled>
+                <button>Отменить</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

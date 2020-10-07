@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Navigation menu example</title>
+        <style>
+            .page {
+                max-width: 800px;
+                margin: 0px auto 0px auto;
+                border: 1px black solid;
+                border-radius: 5px;
+                padding: 10px;
+            }
+
+            .page h2, h3 {
+                text-transform: uppercase;
+                border-bottom: 1px black solid;
+            }
+
+            .page h2 {
+                font-size: 24px
+            }
+
+            .page h3 {
+                font-size: 18px;
+            }
+
+            .page ul {
+                padding-left: 0px;
+            }
+
+            .page li {
+                display: inline;
+                padding-right: 10px;
+            }
+
+            .page li a {
+                font-size: 16px;
+                text-decoration: none;
+                color: black;
+                padding: 5px;
+                border: 1px black solid;
+                border-radius: 5px;
+            }
+
+            .page li a:hover, a:focus {
+                background-color: darkorange;
+            }
+
+            address {
+                font-style: normal;
+            }
+
+            address a {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <!-- Navigation -->
+            <h2>Navigation menu</h2>
+            <ul>
+                <li><a href="index.html#main">Main page</a></li>
+                <li><a href="index.html#contacts">Contacts</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+
+            <!-- Contacts -->
+            <h3 id="contacts">Contacts</h3>
+            <address>
+                <p>Email: <a href="mailto:st.yakush@yandex.ru">Stanislav Yakush</a></p>
+            </address>
+
+            <!-- About -->
+            <h3 id="about">About</h3>
+            <p>
+                This is example page for navigation menu.
+            </p>
+        </div>
+    </body>
+</html>

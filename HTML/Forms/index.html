@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HTML Forms examples</title>
+    </head>
+    <body>
+        <!-- Login form example -->
+        <form action="https://www.google.com" method="POST">
+            <fieldset>
+                <legend>Login</legend>
+                <p>Please, enter data to login</p>
+                <label>Name: <input type="text" name="username" maxlength="15" required="required"></label>
+                <br>
+                <label>Password: <input type="password" name="password" maxlength="32" required="required"></label>
+                <br>
+                <input type="submit" value="Login">
+            </fieldset>
+        </form>
+        <hr>
+
+        <!-- Text area form example -->
+        <form action="https://www.google.com" method="POST">
+            <fieldset>
+                <legend>Email form</legend>
+                <p>Please, enter a letter to me</p>
+                <label>Email: <input type="email" name="email" maxlength="32" required="required"></label>
+                <br>
+                <textarea name="text" required="required"></textarea>
+                <br>
+                <input type="submit" value="Send">
+            </fieldset>
+        </form>
+        <hr>
+
+        <!-- Input type radio example -->
+        <form action="https://www.google.com" method="POST">
+            <p>My favorite pet:</p>
+
+            <label><input type="radio" name="choice">Cat</label>
+            <label><input type="radio" name="choice">Dog</label>
+            <label><input type="radio" name="choice">Rat</label>
+            <label><input type="radio" name="choice" checked="checked">Other</label>
+            <br>
+            <input type="submit" value="Send">
+        </form>
+        <hr>
+
+        <!-- Input type checkbox example -->
+        <form action="https://www.google.com" method="POST">
+            <p>What programming languages are you know?</p>
+            <label><input type="checkbox" name="clang">C</label>
+            <label><input type="checkbox" name="cpp">C++</label>
+            <label><input type="checkbox" name="go">Go</label>
+            <label><input type="checkbox" name="python">Python</label>
+            <label><input type="checkbox" name="javascript">JavaScript</label>
+            <br>
+            <input type="submit" value="Send">
+        </form>
+        <hr>
+
+        <!-- Select option example -->
+        <form action="https://wwww.google.com" method="GET">
+            <p>What do you want?</p>
+            <select name="choice">
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="submit" value="Send">
+        </form>
+        <hr>
+
+        <!-- Multiple select option example -->
+        <form action="https://wwww.google.com" method="GET">
+            <p>What do you want?</p>
+            <select name="choice" multiple="multiple" required="required">
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <input type="submit" value="Send">
+        </form>
+        <hr>
+
+        <!-- Form file upload example -->
+        <form action="https://www.google.com" method="POST">
+            <p>Please, select file to upload</p>
+            <input type="file" name="file" required="required"/>
+            <br>
+            <input type="submit" value="Send">
+        </form>
+    </body>
+</html>

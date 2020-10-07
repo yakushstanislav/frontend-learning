@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Table example</title>
+    </head>
+    <body>
+        <h1>Table example</h1>
+        <table>
+            <caption>Example table list</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">HEADER</th>
+                    <th scope="col">HEADER</th>
+                    <th scope="col">HEADER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">HEADER</th>
+                    <td>DATA</td>
+                    <td>DATA</td>
+                    <td>DATA</td>
+                </tr>
+                <tr>
+                    <th scope="row">HEADER</th>
+                    <td>DATA</td>
+                    <td>DATA</td>
+                    <td>DATA</td>
+                </tr>
+                <tr>
+                    <th scope="row">HEADER</th>
+                    <td rowspan="2">DATA</td>
+                    <td colspan="2">DATA</td>
+                </tr>
+
+                <tr>
+                    <th scope="row">HEADER</th>
+                    <td>DATA</td>
+                    <td>DATA</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row"></th>
+                    <td colspan="3">DATA</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
