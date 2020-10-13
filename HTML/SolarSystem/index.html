@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Solar system</title>
+
+        <style>
+            @font-face {
+                font-family: "Radioland";
+                src: url(radioland.regular.ttf);
+            }
+
+            body {
+                background-color: black;
+            }
+
+            #datetime {
+                color: greenyellow;
+                font-family: Radioland;
+                font-size: 80px;
+                margin: 50px;
+            }
+
+            #earth {
+                position: absolute;
+            }
+
+            #sun {
+                position: absolute;
+                top: 500px;
+                left: 1000px;
+            }
+
+            #hover:hover {
+                cursor: pointer;
+            }
+        </style>
+
+        <script>
+            let angle = Math.PI / 2;
+            let earthRotateSpeedAmp = 0;
+            let sunRotateSpeedAmp = 0;
+
+            function showTime()
+            {
+                let datetime = document.getElementById("datetime");
+
+                datetime.innerText = new Date().toLocaleTimeString();
+            }
+
+            function rotateEarth()
+            {
+                let earth = document.getElementById("earth");
+                let sun = document.getElementById("sun");
+
+                angle += 5 * 0.001;
+
+                earth.style.top = 500 + (Math.sin(angle) * 380) + "px";
+                earth.style.left = 1000 + (Math.cos(angle) * 400) + "px";
+
+                earth.style.transform = `rotate(${parseInt(Math.sin(angle) * (70 + earthRotateSpeedAmp))}deg)`;
+                sun.style.transform = `rotate(${parseInt(angle  * (100 + sunRotateSpeedAmp))}deg)`;
+
+                earth.style.filter = `saturate(${(new Date().getSeconds() * 3) % 181}%)`;
+
+                if (earthRotateSpeedAmp)
+                    earthRotateSpeedAmp--;
+
+                if (sunRotateSpeedAmp)
+                    sunRotateSpeedAmp--;
+            }
+
+            function earthClickHandler()
+            {
+                let sun = document.getElementById("earth");
+
+                earthRotateSpeedAmp += 500;
+            }
+
+            function sunClickHandler()
+            {
+                let sun = document.getElementById("sun");
+
+                sunRotateSpeedAmp += 500;
+            }
+
+            setInterval(rotateEarth, 10);
+            setInterval(showTime, 100);
+        </script>
+    </head>
+    <body>
+        <div class="scene">
+            <h2 id="datetime"></h2>
+            <div id="hover">
+                <img id="earth" onclick="earthClickHandler();" src="earth.png">
+            </div>
+            <div id="hover">
+                <img id="sun" onclick="sunClickHandler();" src="sun.png">
+            </div>
+        </div>
+    </body>
+</html>
