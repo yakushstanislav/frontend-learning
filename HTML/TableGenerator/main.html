@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Table generator</title>
+
+        <script type="module" src="./table.js"></script>
+    </head>
+    <body>
+        <div id="table"></div>
+
+        <script type="module">
+            import {makeTable} from "./table.js"
+
+            const persons = [
+                {
+                    "name": "Stanislav",
+                    "age": 28,
+                    "sex": "M"
+                },
+                {
+                    "name": "Victoria",
+                    "age": 23,
+                    "sex": "F"
+                },
+                {
+                    "name": "Jakson",
+                    "age": 22,
+                    "sex": "M"
+                },
+                {
+                    "name": "Marta",
+                    "age": 21,
+                    "sex": "F"
+                }
+            ];
+
+            document.getElementById("table").appendChild(makeTable(persons));
+        </script>
+    </body>
+</html>
