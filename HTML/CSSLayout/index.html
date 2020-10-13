@@ -34,6 +34,26 @@
                 margin-left: 10px;
             }
 
+            #main #menu #custom {
+                float: left;
+                display: inline;
+                padding: 10px;
+            }
+
+            #main #menu #custom input[type="button"]
+            {
+                height: 40px;
+                background-color: wheat;
+                border: tan 1px solid;
+                border-radius: 10px;
+            }
+
+            #main #menu #custom input[type="button"]:hover
+            {
+                cursor: pointer;
+                background-color: blanchedalmond;
+            }
+
             #main #menu ul {
                 float: right;
                 padding-left: 0px;
@@ -84,19 +104,51 @@
                 text-transform: uppercase;
             }
 
+            #main #news-list .news {
+                font-size: 16px;
+            }
+
             #main #footer {
                 width: 1000px;
                 height: 50px;
                 text-align: center;
                 background-color: blanchedalmond;
             }
-
         </style>
+
+        <script>
+            function setFontSize(size)
+            {
+                let elements = document.getElementsByClassName("news");
+
+                for (let elem of elements)
+                {
+                    if (!elem.style.fontSize)
+                    {
+                        elem.style.fontSize = "16px";
+                    }
+                    else
+                    {
+                        const value = parseInt(elem.style.fontSize);
+
+                        if (value < 12 && size < 0)
+                            return;
+
+                        elem.style.fontSize = (value + size) + "px";
+                    }
+                }
+            }
+        </script>
     </head>
     <body>
         <div id="main">
             <div id="menu">
                 <h2>CSS Layout example</h2>
+
+                <div id="custom">
+                    <input id="plus_button" type="button" onclick="setFontSize(2)" value="⊕">
+                    <input id="minus_button" type="button" onclick="setFontSize(-2)" value="⊖">
+                </div>
 
                 <ul>
                     <li><a href="#main">Main</a></li>
