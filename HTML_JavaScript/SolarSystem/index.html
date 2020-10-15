@@ -11,7 +11,7 @@
             }
 
             body {
-                background-color: black;
+                background-color: #000000;
             }
 
             #datetime {
@@ -21,25 +21,76 @@
                 margin: 50px;
             }
 
+            #color {
+                position: relative;
+                display: none;
+                z-index: 25;
+                opacity: 80%;
+                padding: 10px;
+                border: white 2px dotted;
+                border-radius: 15px;
+                width: 300px;
+            }
+
+            #color p {
+                color: white;
+                font-size: 20px;
+            }
+
+            #color input[type="range"] {
+                display: block;
+                z-index: 25;
+                width: 280px;
+            }
+
             #earth {
                 position: absolute;
+                z-index: 10;
             }
 
             #sun {
                 position: absolute;
                 top: 500px;
                 left: 1000px;
+                z-index: 5;
             }
 
             #hover:hover {
                 cursor: pointer;
             }
         </style>
+    </head>
+    <body>
+        <div id="scene">
+            <h2 id="datetime"></h2>
+
+            <div id="color">
+                <p>Red:</p>
+                <input id="red" type="range" min="0" max="255" value="1" step="1">
+
+                <p>Green:</p>
+                <input id="green" type="range" min="0" max="255" value="1" step="1">
+
+                <p>Blue:</p>
+                <input id="blue" type="range" min="0" max="255" value="1" step="1">
+            </div>
+
+            <div id="hover">
+                <img id="earth" onclick="earthClickHandler();" src="earth.png">
+            </div>
+            <div id="hover">
+                <img id="sun" onclick="sunClickHandler();" src="sun.png">
+            </div>
+        </div>
 
         <script>
             let angle = Math.PI / 2;
-            let earthRotateSpeedAmp = 0;
-            let sunRotateSpeedAmp = 0;
+            let offsetX = 0, offsetY = 0;
+            let earthRotateSpeedAmp = 0, sunRotateSpeedAmp = 0;
+
+            let redColor = 0, greenColor = 0, blueColor = 0;
+
+            let isPaused = false;
 
             function showTime()
             {
@@ -50,13 +101,19 @@
 
             function rotateEarth()
             {
+                if (isPaused)
+                    return;
+
                 let earth = document.getElementById("earth");
                 let sun = document.getElementById("sun");
 
                 angle += 5 * 0.001;
 
-                earth.style.top = 500 + (Math.sin(angle) * 380) + "px";
-                earth.style.left = 1000 + (Math.cos(angle) * 400) + "px";
+                earth.style.top = 500 + offsetY + (Math.sin(angle) * 380) + "px";
+                earth.style.left = 1000 + offsetX + (Math.cos(angle) * 400) + "px";
+
+                sun.style.top = 500 + offsetY + "px";
+                sun.style.left = 1000 + offsetX + "px";
 
                 earth.style.transform = `rotate(${parseInt(Math.sin(angle) * (70 + earthRotateSpeedAmp))}deg)`;
                 sun.style.transform = `rotate(${parseInt(angle  * (100 + sunRotateSpeedAmp))}deg)`;
@@ -84,19 +141,104 @@
                 sunRotateSpeedAmp += 500;
             }
 
+            function makeColor(red = 0, green = 0, blue = 0)
+            {
+                // FIXME: Handle overflow (not necessary for DEMO)
+
+                redColor += red;
+                greenColor += green;
+                blueColor += blue;
+
+                return `rgb(${redColor}, ${greenColor}, ${blueColor})`;
+            }
+
+            function updateColor()
+            {
+                document.body.style.backgroundColor = makeColor();
+            }
+
+            function setColor(red, green, blue)
+            {
+                document.body.style.backgroundColor = makeColor(red, green, blue);
+
+                document.getElementById("red").value = redColor;
+                document.getElementById("green").value = greenColor;
+                document.getElementById("blue").value = blueColor;
+            }
+
+            window.addEventListener("click", event => {
+                if (isPaused)
+                    return;
+
+                if (event.target.tagName != "IMG")
+                {
+                    let scene = document.getElementById("scene");
+
+                    let img = document.createElement("img");
+
+                    img.setAttribute("src", "star.png");
+
+                    img.style.position = "absolute";
+                    img.style.top = event.pageY - 32 + "px";
+                    img.style.left = event.pageX - 32 + "px";
+                    img.style.zIndex = "0";
+
+                    scene.appendChild(img);
+                }
+            });
+
+            window.addEventListener("keydown", event => {
+                if (event.code == 'Space')
+                {
+                    let colorSelector = document.getElementById("color");
+
+                    isPaused = !isPaused;
+
+                    colorSelector.style.display = isPaused ? "block" : "none";
+                }
+                else if (event.code == 'ArrowUp')
+                {
+                    offsetY -= 10;
+                }
+                else if (event.code == 'ArrowDown')
+                {
+                    offsetY += 10;
+                }
+                else if (event.code == 'ArrowLeft')
+                {
+                    offsetX -= 10;
+                }
+                else if (event.code == 'ArrowRight')
+                {
+                    offsetX += 10;
+                }
+                else if (event.code == 'NumpadAdd')
+                {
+                    setColor(5, 5, 5);
+                }
+                else if (event.code == 'NumpadSubtract')
+                {
+                    setColor(-5, -5, -5);
+                }
+            });
+
+            document.getElementById("red").addEventListener("mouseup", event => {
+                redColor = parseInt(document.getElementById("red").value);
+                updateColor();
+            });
+
+            document.getElementById("green").addEventListener("mouseup", event => {
+                greenColor = parseInt(document.getElementById("green").value);
+                updateColor();
+            });
+
+            document.getElementById("blue").addEventListener("mouseup", event => {
+                blueColor = parseInt(document.getElementById("blue").value);
+                updateColor();
+            });
+
             setInterval(rotateEarth, 10);
             setInterval(showTime, 100);
         </script>
-    </head>
-    <body>
-        <div class="scene">
-            <h2 id="datetime"></h2>
-            <div id="hover">
-                <img id="earth" onclick="earthClickHandler();" src="earth.png">
-            </div>
-            <div id="hover">
-                <img id="sun" onclick="sunClickHandler();" src="sun.png">
-            </div>
-        </div>
     </body>
 </html>
