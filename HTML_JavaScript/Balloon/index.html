@@ -47,92 +47,91 @@
                     opacity: 0%;
                 }
             }
-
         </style>
-    </head>
 
-    <script>
-        const textStates = {
-            1 : "I say don't touch me!",
-            2 : "Hey!",
-            3 : "Don't touch me, please!",
-            4 : "Are you idiot? Stop it!",
-            5 : "Don't click me!!!",
-            6 : "I will call the police!",
-            7 : "Do you want kill me? Why?",
-            8 : "You are crazy!!! STOP IT, PLEASE!",
-            9 : "Noooooooooooo!!!!!"
-        };
+        <script>
+            const textStates = {
+                1 : "I say don't touch me!",
+                2 : "Hey!",
+                3 : "Don't touch me, please!",
+                4 : "Are you idiot? Stop it!",
+                5 : "Don't click me!!!",
+                6 : "I will call the police!",
+                7 : "Do you want kill me? Why?",
+                8 : "You are crazy!!! STOP IT, PLEASE!",
+                9 : "Noooooooooooo!!!!!"
+            };
 
-        let state = 1;
+            let state = 1;
 
-        function increaseBalloonFontSize(value)
-        {
-            let balloon = document.getElementById("balloon");
+            function increaseBalloonFontSize(value)
+            {
+                let balloon = document.getElementById("balloon");
 
-            if (balloon) {
-                const fontSize = parseInt(window.getComputedStyle(balloon, null).
-                    getPropertyValue("font-size"));
+                if (balloon) {
+                    const fontSize = parseInt(window.getComputedStyle(balloon, null).
+                        getPropertyValue("font-size"));
 
-                balloon.style.fontSize = (fontSize + value) + "px";
-            } else {
-                console.log("Can't find element");
+                    balloon.style.fontSize = (fontSize + value) + "px";
+                } else {
+                    console.log("Can't find element");
+                }
             }
-        }
 
-        function makeBallonBoom()
-        {
-            let ballon = document.getElementById("balloon");
+            function makeBallonBoom()
+            {
+                let ballon = document.getElementById("balloon");
 
-            if (ballon) {
-                ballon.innerText = "💥";
-                ballon.style.animation = "fadeout ease forwards 8s";
+                if (ballon) {
+                    ballon.innerText = "💥";
+                    ballon.style.animation = "fadeout ease forwards 8s";
 
+                    let text = document.getElementById("text");
+
+                    if (text) {
+                        text.innerText = "";
+                    } else {
+                        console.log("Can't find element!");
+                    }
+                } else {
+                    console.log("Can't find element");
+                }
+            }
+
+            function updateTextState()
+            {
                 let text = document.getElementById("text");
 
                 if (text) {
-                    text.innerText = "";
-                } else {
-                    console.log("Can't find element!");
-                }
-            } else {
-                console.log("Can't find element");
-            }
-        }
-
-        function updateTextState()
-        {
-            let text = document.getElementById("text");
-
-            if (text) {
-                if (state in textStates) {
-                    text.innerText = textStates[state];
-                }
-            } else {
-                console.log("Can't find element");
-            }
-        }
-
-        function initialize()
-        {
-            let ballon = document.getElementById("balloon");
-
-            if (ballon) {
-                ballon.addEventListener("click", event => {
                     if (state in textStates) {
-                        increaseBalloonFontSize(40);
-                        updateTextState();
-
-                        state += 1;
-                    } else {
-                        makeBallonBoom();
+                        text.innerText = textStates[state];
                     }
-                });
-            } else {
-                console.log("Can't find element");
+                } else {
+                    console.log("Can't find element");
+                }
             }
-        }
-    </script>
+
+            function initialize()
+            {
+                let ballon = document.getElementById("balloon");
+
+                if (ballon) {
+                    ballon.addEventListener("click", event => {
+                        if (state in textStates) {
+                            increaseBalloonFontSize(40);
+                            updateTextState();
+
+                            state += 1;
+                        } else {
+                            makeBallonBoom();
+                        }
+                    });
+                } else {
+                    console.log("Can't find element");
+                }
+            }
+        </script>
+    </head>
     <body>
         <div class="scene">
             <p id="text">Don't touch me!</p>
