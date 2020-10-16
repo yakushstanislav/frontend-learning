@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Balloon</title>
+
+        <style>
+            body {
+                background-color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .scene {
+                width: 600px;
+                height: 600px;
+                margin: 0px auto;
+            }
+
+            #balloon {
+                font-size: 120px;
+                text-align: center;
+                margin: 10px;
+                padding: 50px;
+            }
+
+            #balloon:hover {
+                cursor: pointer;
+            }
+
+            #text {
+                position: relative;
+                font-size: 26px;
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            @keyframes fadeout {
+                0% {
+                    opacity: 100%;
+                }
+
+                33% {
+                    opacity: 75%;
+                }
+
+                100% {
+                    opacity: 0%;
+                }
+            }
+
+        </style>
+    </head>
+
+    <script>
+        const textStates = {
+            1 : "I say don't touch me!",
+            2 : "Hey!",
+            3 : "Don't touch me, please!",
+            4 : "Are you idiot? Stop it!",
+            5 : "Don't click me!!!",
+            6 : "I will call the police!",
+            7 : "Do you want kill me? Why?",
+            8 : "You are crazy!!! STOP IT, PLEASE!",
+            9 : "Noooooooooooo!!!!!"
+        };
+
+        let state = 1;
+
+        function increaseBalloonFontSize(value)
+        {
+            let balloon = document.getElementById("balloon");
+
+            if (balloon) {
+                const fontSize = parseInt(window.getComputedStyle(balloon, null).
+                    getPropertyValue("font-size"));
+
+                balloon.style.fontSize = (fontSize + value) + "px";
+            } else {
+                console.log("Can't find element");
+            }
+        }
+
+        function makeBallonBoom()
+        {
+            let ballon = document.getElementById("balloon");
+
+            if (ballon) {
+                ballon.innerText = "💥";
+                ballon.style.animation = "fadeout ease forwards 8s";
+
+                let text = document.getElementById("text");
+
+                if (text) {
+                    text.innerText = "";
+                } else {
+                    console.log("Can't find element!");
+                }
+            } else {
+                console.log("Can't find element");
+            }
+        }
+
+        function updateTextState()
+        {
+            let text = document.getElementById("text");
+
+            if (text) {
+                if (state in textStates) {
+                    text.innerText = textStates[state];
+                }
+            } else {
+                console.log("Can't find element");
+            }
+        }
+
+        function initialize()
+        {
+            let ballon = document.getElementById("balloon");
+
+            if (ballon) {
+                ballon.addEventListener("click", event => {
+                    if (state in textStates) {
+                        increaseBalloonFontSize(40);
+                        updateTextState();
+
+                        state += 1;
+                    } else {
+                        makeBallonBoom();
+                    }
+                });
+            } else {
+                console.log("Can't find element");
+            }
+        }
+    </script>
+    <body>
+        <div class="scene">
+            <p id="text">Don't touch me!</p>
+            <p id="balloon">🎈</p>
+        </div>
+
+        <script>
+            initialize();
+        </script>
+    </body>
+</html>
