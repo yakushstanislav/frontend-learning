@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Flexbox example</title>
+
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0px;
+            }
+
+            .page {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .header__contacts {
+                padding: 10px;
+            }
+
+            .header__contacts a {
+                color: black;
+                font-size: 20px;
+                font-style: normal;
+                text-decoration: none;
+            }
+
+            .header__contacts a:hover {
+                cursor: pointer;
+                filter: invert(25%);
+            }
+
+            .header__logo h2 {
+                font-size: 35px;
+            }
+
+            .header__login {
+                padding: 10px;
+            }
+
+            .header__login input[type="text"], input[type="password"]  {
+                width: 150px;
+            }
+
+            .main {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .news__header {
+                padding: 20px;
+            }
+
+            .push_ml {
+                margin-left: auto;
+            }
+
+            .footer {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                color: white;
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="header">
+                <div class="header__contacts">
+                    <address>
+                        <p><a href="mailto:st.yakush@yandex.ru">🖊 Mail me</a></p>
+                        <p><a href="tel:+375291507734">📞 +375 29 150-77-34</a></p>
+                    </address>
+                </div>
+
+                <div class="header__logo">
+                    <h2>Flexbox example</h2>
+                </div>
+
+                <div class="header__login">
+                    <form>
+                        <p><label>Login: <input name="login" type="text" maxlength="15" required></label></p>
+                        <p><label>Password: <input name="password" type="password" maxlength="15" required></label></p>
+                        <p><input type="submit" value="Login"></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="main">
+                <aside class="news">
+                    <div class="news__header">
+                        <p>News 1</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 2</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 3</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 4</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 5</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 6</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 7</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 8</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 9</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 10</p>
+                    </div>
+                </aside>
+
+                <main class="content">
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                    <p>Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here! Main content here!</p>
+                </main>
+
+                <div class="push_ml"></div>
+
+                <aside class="news">
+                    <div class="news__header">
+                        <p>News 1</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 2</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 3</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 4</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 5</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 6</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 7</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 8</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 9</p>
+                    </div>
+                    <div class="news__header">
+                        <p>News 10</p>
+                    </div>
+                </aside>
+            </div>
+
+            <footer class="footer">
+                <p>Stanislav Yakush 2020 &copy;</p>
+            </footer>
+        </div>
+    </body>
+</html>
