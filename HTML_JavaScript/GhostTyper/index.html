@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Ghost Typer</title>
+
+        <script type="module" src="./lib/typer.js"></script>
+
+        <style>
+            @font-face {
+                font-family: "Hacked-KerX";
+                src: url("Hacked-KerX.ttf");
+            }
+
+            body {
+                color: yellow;
+                background-color: black;
+            }
+
+            .main {
+                width: 80%;
+                margin: 0px auto;
+                padding: 20px;
+                font-size: 70px;
+                font-family: "Hacked-KerX";
+                text-align: center;
+                border: 1px gray dashed;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <p id="text">...</p>
+        </main>
+
+        <script type="module">
+            import {run} from './lib/typer.js';
+
+            const typerOptions = {
+                methods: [
+                    {
+                        name: '_begin',
+                        handler: (element) => {
+                            element.textContent = "";
+                        }
+                    },
+                    {
+                        name: '_end',
+                        handler: (element) => {
+                            element.textContent = "DONE!";
+                        }
+                    },
+                    {
+                        name: 'write',
+                        delay: 250,
+                        handler: (element, value) => {
+                            element.textContent = element.textContent + value;
+                        }
+                    },
+                    {
+                        name: 'clear',
+                        delay: 650,
+                        handler: (element) => {
+                            element.textContent = element.textContent.slice(0, element.textContent.length - 1);
+                        }
+                    }
+                ],
+                content: [
+                    {
+                        method: "write",
+                        data: "Hello, my name is Stanislav. I am 27"
+                    },
+                    {
+                        method: "clear",
+                        count: 2,
+                    },
+                    {
+                        method: "write",
+                        data: " 28 years old."
+                    }
+                ],
+                element: document.getElementById("text"),
+            };
+
+            run(typerOptions);
+        </script>
+    </body>
+</html>
