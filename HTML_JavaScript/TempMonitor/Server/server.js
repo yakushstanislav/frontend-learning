@@ -35,7 +35,8 @@ http.createServer(function (request, response) {
 
         if (path.pathname == "/temperature")
         {
-            response.writeHead(200, {'Content-Type': 'application/json'});
+            response.writeHead(200, {'Content-Type': 'application/json',
+                                     'Access-Control-Allow-Origin': '*'});
             response.write(JSON.stringify(state));
             response.end();
         }

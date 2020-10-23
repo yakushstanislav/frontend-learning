@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Temperature monitor</title>
+
+        <style>
+            .body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            .main {
+                width: 75%;
+                margin: 0px auto;
+            }
+
+            #temperature {
+                padding-left: 25px;
+                padding-right: 25px;
+                font-size: 100px;
+                text-align: center;
+                border: black 1px solid;
+                border-radius: 5px;
+            }
+
+            #temperature::after {
+                content: "°C";
+            }
+        </style>
+
+        <script>
+            let lastTimestamp = 0;
+
+            function getTemperature()
+            {
+                return fetch("http://localhost:8080/temperature")
+                    .then(response => response.json())
+                    .then(data => data);
+            }
+
+            function updateTemperature()
+            {
+                getTemperature().then(temp => {
+                    if (lastTimestamp != temp.timestamp)
+                    {
+                        let element = document.getElementById("temperature");
+
+                        if (element)
+                            element.textContent = temp.temperature;
+
+                        lastTimestamp = temp.timestamp;
+                    }
+                }).catch(_ => {
+                    let element = document.getElementById("temperature");
+
+                    if (element)
+                        element.textContent = "-";
+                });
+            }
+
+            setInterval(updateTemperature, 500);
+        </script>
+    </head>
+    <body>
+        <main class="main">
+            <p id="temperature">-</p>
+        </main>
+    </body>
+</html>
