@@ -6,7 +6,6 @@ const chalk = require("chalk");
 
 const SerialPort = require("serialport");
 const SerialParserReadline = require("@serialport/parser-readline");
-const { error } = require("console");
 
 const SERIAL_PATH = "/dev/ttyACM0";
 const SERIAL_BAUDRATE = 9600;
@@ -44,7 +43,7 @@ port.on("close", () =>
     console.warn(chalk.whiteBright("Close connection...")
 ));
 
-http.createServer(function (request, response) {
+http.createServer((request, response) => {
     if (request.url)
     {
         const path = url.parse(request.url);
