@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>HelloWorld example</title>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            const app = document.getElementById("app");
+            ReactDOM.render(React.createElement("h2", {}, "Hello world!"), app);
+        </script>
+    </body>
+</html>
