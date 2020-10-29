@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Notes example</title>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            class Note extends React.Component
+            {
+                constructor(props)
+                {
+                    super(props);
+                };
+
+                render()
+                {
+                    return (
+                        <p>{this.props.text}</p>
+                    );
+                }
+            }
+
+            class NoteAddForm extends React.Component
+            {
+                constructor(props)
+                {
+                    super(props);
+
+                    this.state = {
+                        text: ""
+                    };
+
+                    this.onChangeText = this.onChangeText.bind(this);
+                    this.onSubmitForm = this.onSubmitForm.bind(this);
+                }
+
+                onChangeText(event)
+                {
+                    this.setState({text: event.target.value});
+                }
+
+                onSubmitForm(event)
+                {
+                    event.preventDefault();
+
+                    this.props.onFormSubmit(this.state.text);
+
+                    this.setState({text: ""});
+                }
+
+                render()
+                {
+                    return (
+                        <form onSubmit={this.onSubmitForm}>
+                            <input type="text" value={this.state.text} onChange={this.onChangeText}/>
+                            <input type="submit" value="Add"/>
+                        </form>
+                    );
+                }
+            }
+
+            class Notes extends React.Component
+            {
+                constructor(props)
+                {
+                    super(props);
+
+                    this.state = {
+                        notes: props.notes || []
+                    };
+
+                    this.onFormSubmit = this.onFormSubmit.bind(this);
+                };
+
+                onFormSubmit(value)
+                {
+                    this.state.notes.concat([value]);
+
+                    this.setState({notes: this.state.notes.concat([value])});
+                }
+
+                render()
+                {
+                    return (
+                        <div className="notes">
+                            {
+                                this.state.notes.map(value =>
+                                    <Note text={value}/>
+                                )
+                            }
+
+                            <NoteAddForm onFormSubmit={this.onFormSubmit}/>
+                        </div>
+                    );
+                }
+            }
+
+            const app = document.getElementById("app");
+            ReactDOM.render(<Notes notes={["Note 1", "Note 2", "Note 3"]}/>, app);
+        </script>
+    </body>
+</html>
