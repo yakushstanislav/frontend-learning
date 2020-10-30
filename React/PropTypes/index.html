@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>PropTypes example</title>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            class TextSeparator extends React.Component
+            {
+                constructor(props)
+                {
+                    super(props);
+
+                    this.state = {
+                        "text": ""
+                    };
+
+                    this.onChangeText = this.onChangeText.bind(this);
+                }
+
+                onChangeText(event)
+                {
+                    this.setState({"text": event.target.value});
+                }
+
+                render()
+                {
+                    return (
+                        <div>
+                            <p>Enter any text here...</p>
+                            <form>
+                                <input type="text" value={this.state.text} onChange={this.onChangeText}/>
+                            </form>
+
+                            <ol>
+                                {
+                                    this.state.text.split(this.props.sep).map((value, index) => <li key={index}>{value}</li>)
+                                }
+                            </ol>
+                        </div>
+                    )
+                }
+            }
+
+            TextSeparator.propTypes = {
+                "sep": PropTypes.string.isRequired
+            };
+
+            TextSeparator.defaultProps = {
+                "sep": " "
+            };
+
+            ReactDOM.render(<TextSeparator/>, document.getElementById("app"));
+        </script>
+    </body>
+</html>
