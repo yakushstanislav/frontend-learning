@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>React component lifecycle</title>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/babel">
+            class WordCount extends React.Component
+            {
+                static propTypes = {
+                    sep: PropTypes.string.isRequired
+                };
+
+                static defaultProps = {
+                    sep: ""
+                };
+
+                constructor(props)
+                {
+                    super(props);
+
+                    this.state = {
+                        text: "",
+                        words: 0,
+                    };
+
+                    this.onChangeText = this.onChangeText.bind(this);
+                }
+
+                componentDidMount()
+                {
+                    console.log("Component did mount");
+                }
+
+                componentWillUnmount()
+                {
+                    console.log("Component will unmount");
+                }
+
+                onChangeText(event)
+                {
+                    this.setState(() => (
+                        {
+                            text: event.target.value,
+                            words: event.target.value.split(this.props.sep).length
+                        }
+                    ));
+                }
+
+                render()
+                {
+                    console.log("Render");
+
+                    return (
+                        <form>
+                            <p>Word count: {this.state.words}</p>
+                            <input type="text" value={this.state.text} onChange={this.onChangeText}/>
+                        </form>
+                    );
+                }
+            }
+
+            ReactDOM.render(<WordCount/>, document.getElementById("app"));
+        </script>
+    </body>
+</html>
